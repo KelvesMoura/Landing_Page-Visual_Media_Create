@@ -1,0 +1,104 @@
+.portfolio {
+  background: var(--portfolio-gradient-color);
+  padding: 5rem 13rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title-portfolio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-portfolio h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: var(--global-font);
+  line-height: 7rem;
+  letter-spacing: 1.25px;
+  text-align: center;
+  text-wrap: inherit;
+}
+
+.title-portfolio h2 span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.title-portfolio p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: var(--alternative-font);
+  width: 50%;
+  color: var(--bgray-color);
+  text-align: center;
+  letter-spacing: 1.25px;
+  line-height: 2rem;
+}
+
+.cards-portfolio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2em;
+}
+
+.cards-portfolio .card-image {
+  margin: 1rem;
+  padding: 2rem 0 0;
+  line-height: 1.5rem;
+  background-color: #f3f2f54d;
+  border: 1px solid #d7d0e1;
+  border-radius: 0.5rem;
+  animation: flutuate-card 4s ease-in-out infinite;
+}
+
+.cards-portfolio .card-image:nth-child(3n + 2) {
+  animation-delay: 1s;
+}
+
+.cards-portfolio .card-image:nth-child(3n + 3) {
+  animation-delay: 2s;
+}
+
+.cards-portfolio .card-image:hover {
+  box-shadow: 0 10px 20px 5px #c0bbc5;
+}
+
+.cards-portfolio .image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  padding: 0;
+  margin: 0;
+}
+
+.image img {
+  width: 100%;
+  overflow: hidden;
+  height: 300px;
+}
+
+.cards-portfolio .info-image {
+  padding: 1.5rem;
+}
+
+.cards-portfolio h4 {
+  font-family: var(--alternative-font);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bgray-color);
+}
+
+.cards-portfolio p {
+  font-family: var(--alternative-font);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--bgray-color);
+}

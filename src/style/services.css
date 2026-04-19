@@ -1,0 +1,134 @@
+.services {
+  background: var(--services-gradient-color);
+  padding: 5rem 13rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title-services {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-services h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: var(--global-font);
+  line-height: 7rem;
+  letter-spacing: 1.25px;
+  text-align: center;
+  text-wrap: inherit;
+}
+
+.title-services h2 span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.title-services p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: var(--alternative-font);
+  width: 50%;
+  color: var(--bgray-color);
+  text-align: center;
+  letter-spacing: 1.25px;
+  line-height: 2rem;
+}
+
+.cards-services {
+  display: flex;
+  flex-direction: row;
+}
+
+.cards-services .card-1,
+.cards-services .card-2,
+.cards-services .card-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1.25rem;
+  margin: 1rem;
+  padding: 2rem 1.25rem;
+  line-height: 1.5rem;
+  background-color: #f3f2f54d;
+  border: 1px solid #d7d0e1;
+  border-radius: 0.5rem;
+  flex: 1;
+}
+
+.cards-services .card-1:hover,
+.cards-services .card-2:hover,
+.cards-services .card-3:hover {
+  border: 1px solid #b69cc9;
+  box-shadow: 0 10px 20px 5px #c0bbc5;
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
+}
+
+.cards-services .card-2:hover {
+  border: 1px solid var(--borange-color);
+}
+
+.cards-services div i {
+  font-size: 30px;
+}
+
+.icon-purple-static,
+.icon-orange-static {
+  color: var(--bpurple-color);
+  fill: currentColor;
+  filter: drop-shadow(0 0 7px rgba(86, 15, 136, 0.3));
+}
+
+.icon-orange-static {
+  color: var(--borange-color);
+}
+
+.cards-services .icon-bg-purple,
+.cards-services .icon-bg-orange {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px !important;
+  height: 50px !important;
+  margin: 0;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 10%;
+  background: linear-gradient(135deg, #cebed4, #e2c7ca);
+  position: relative;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease;
+  animation: border-pulse 2.5s ease-in-out infinite;
+}
+
+.cards-services .icon-bg-orange {
+  animation-delay: 1s;
+}
+
+.cards-services .icon-bg-purple:hover,
+.cards-services .icon-bg-orange:hover {
+  background: linear-gradient(135deg, #b79bbd, #deadaa);
+}
+
+.cards-services h4 {
+  font-family: var(--alternative-font);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bgray-color);
+}
+
+.cards-services p {
+  font-family: var(--alternative-font);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--bgray-color);
+}

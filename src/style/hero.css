@@ -1,0 +1,106 @@
+.hero {
+  background: var(--hero-background-color);
+  height: screen;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10rem 28rem 5rem;
+  line-height: 1.5rem;
+}
+
+.alert-agency {
+  display: flex;
+  flex-direction: row;
+  gap: 0.625rem;
+  align-items: center;
+  font-size: 0.75rem;
+  padding: 0 0.625rem;
+  background: #c5b2d1;
+  border: 2px solid #c5b2d1;
+  border-radius: 0.312rem;
+  animation: opacity-pulse 1s infinite alternate;
+}
+
+h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  font-family: var(--global-font);
+  text-wrap: wrap;
+  line-height: 7rem;
+  letter-spacing: 1.25px;
+  text-align: center;
+  text-wrap: inherit;
+}
+
+h1 span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.title-hero p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: var(--alternative-font);
+  text-wrap: wrap;
+  color: var(--bgray-color);
+  text-align: center;
+  letter-spacing: 1.25px;
+  line-height: 2rem;
+}
+
+.double-cta {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 2rem 0;
+}
+
+.cta-invert button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.75rem;
+  background: var(--button-invert-gradient-color);
+  color: var(--white-color);
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.312rem;
+  cursor: pointer;
+  animation: glow-invert-button 1.5s infinite alternate;
+}
+
+.cta-invert button:hover {
+  background: var(--button-gradient-color);
+  animation: glow-invert-button 1.5s infinite alternate;
+}
+
+.icon-play,
+.icon-arrow-right {
+  color: inherit;
+  font-size: inherit;
+}
+
+.cta-transparent button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: transparent;
+  color: var(--borange-color);
+  border: 2px solid var(--borange-color);
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.312rem;
+  cursor: pointer;
+}
+
+.cta-transparent button:hover {
+  background: var(--borange-color);
+  color: white;
+}

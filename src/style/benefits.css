@@ -1,0 +1,151 @@
+.benefits {
+  background: var(--benefits-gradient-color);
+  padding: 5rem 13rem;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title-benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-benefits h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: var(--global-font);
+  line-height: 7rem;
+  letter-spacing: 1.25px;
+  text-align: center;
+  text-wrap: inherit;
+}
+
+.title-benefits h2 span {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.title-benefits p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: var(--alternative-font);
+  width: 50%;
+  color: var(--bgray-color);
+  text-align: center;
+  letter-spacing: 1.25px;
+  line-height: 2rem;
+}
+
+.cards-benefits {
+  display: flex;
+  flex-direction: row;
+}
+
+.cards-benefits .card-1,
+.cards-benefits .card-2,
+.cards-benefits .card-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 1rem;
+  padding: 2rem 1.25rem;
+  line-height: 1.5rem;
+  background-color: #f3f2f54d;
+  border: 1px solid #d7d0e1;
+  border-radius: 0.5rem;
+  flex: 1;
+  animation: flutuate-card 4s ease-in-out infinite;
+}
+
+.cards-benefits .card-1:hover,
+.cards-benefits .card-2:hover,
+.cards-benefits .card-3:hover {
+  border: 1px solid #b69cc9;
+  box-shadow: 0 10px 20px 5px #c0bbc5;
+}
+
+.cards-benefits .card-2:hover {
+  border: 1px solid var(--borange-color);
+}
+
+.cards-benefits .card-2 {
+  animation-delay: 1s;
+}
+
+.cards-benefits .card-3 {
+  animation-delay: 2s;
+}
+
+.cards-benefits div p {
+  text-align: center;
+}
+
+.cards-benefits div i {
+  font-size: 30px;
+}
+
+.icon-purple-animate,
+.icon-orange-animate {
+  color: var(--bpurple-color);
+  fill: currentColor;
+  filter: drop-shadow(0 0 7px rgba(86, 15, 136, 0.3));
+  animation: glow-svg 2.5s ease-in-out infinite;
+}
+
+.icon-orange-animate {
+  color: var(--borange-color);
+}
+
+.cards-benefits .icon-bg-purple,
+.cards-benefits .icon-bg-orange {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px !important;
+  height: 60px !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #cebed4, #e2c7ca);
+  position: relative;
+  transition:
+    background 0.5s ease,
+    border-color 0.5s ease;
+  animation:
+    border-pulse 2.5s ease-in-out infinite,
+    flutuate 4s ease-in-out infinite;
+}
+
+.cards-benefits .card-2 .icon-bg-orange {
+  animation-delay: 1s;
+}
+
+.cards-benefits .card-3 .icon-bg-purple {
+  animation-delay: 2s;
+}
+
+.cards-benefits .icon-bg-purple:hover,
+.cards-benefits .icon-bg-orange:hover {
+  background: linear-gradient(135deg, #b79bbd, #deadaa);
+}
+
+.cards-benefits h4 {
+  font-family: var(--alternative-font);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--bgray-color);
+}
+
+.cards-benefits p {
+  font-family: var(--alternative-font);
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--bgray-color);
+}

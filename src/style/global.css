@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --global-font: "Open Sans", sans-serif;
+  --alternative-font: "Work Sans", sans-serif;
+  --bpurple-color: #4b0082;
+  --boff-white-color: #f0e8e1;
+  --bgray-color: #2c2c2c;
+  --borange-color: #ff6f00;
+  --fgray-color: #b1a6b7;
+  --fline-color: #6e4477;
+  --white-color: #fff;
+  --black-color: #000;
+  --star-color: #ff6f00;
+  --gradient-brand: linear-gradient(to right, #560a7c, #ff5722);
+  --header-gradient-color: linear-gradient(90deg, #4b0082, #ff6f00, #4b0082);
+  --footer-gradient-color: linear-gradient(180deg, #3c2a4a, #612568);
+  --benefits-gradient-color: linear-gradient(135deg, #e8e4ea, #e1dbe6);
+  --services-gradient-color: linear-gradient(135deg, #e3d7dd, #e1dae5);
+  --portfolio-gradient-color: linear-gradient(135deg, #e4dfe8, #f1e3db);
+  --testimonials-gradient-color: linear-gradient(135deg, #ede8e8, #f1e7e0);
+  --contact-gradient-color: linear-gradient(135deg, #e1d5dc, #f2ded1);
+  --button-gradient-color: linear-gradient(to right, #ff6f00, #4b0082);
+  --button-invert-gradient-color: linear-gradient(to right, #4b0082, #ff6f00);
+  --hero-background-color: linear-gradient(
+    135deg,
+    rgb(219, 204, 229),
+    rgb(236, 229, 230),
+    rgb(242, 211, 196)
+  );
+}
+
+*,
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  font-family: var(--global-font);
+  color: var(--bgray-color);
+}

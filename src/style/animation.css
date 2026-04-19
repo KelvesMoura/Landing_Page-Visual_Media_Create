@@ -1,0 +1,90 @@
+@keyframes glow-logo {
+  from {
+    box-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 111, 0, 0);
+  }
+}
+
+@keyframes glow-button {
+  from {
+    box-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
+  }
+  to {
+    box-shadow:
+      0 0 20px rgba(255, 111, 0, 0.8),
+      0 0 30px rgba(75, 0, 130, 0.5);
+  }
+}
+
+@keyframes border-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+@keyframes opacity-pulse {
+  from {
+    opacity: 50%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes glow-invert-button {
+  from {
+    box-shadow: 0 0 10px rgba(75, 0, 130, 0.5);
+  }
+  to {
+    box-shadow:
+      0 0 20px rgba(255, 111, 0, 0.8),
+      0 0 30px rgba(75, 0, 130, 0.5);
+  }
+}
+
+@keyframes border-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 7px rgba(86, 15, 136, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px #fc6e0f;
+  }
+}
+
+@keyframes glow-svg {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 7px rgba(86, 15, 136, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 15px rgba(86, 15, 136, 0.6));
+  }
+}
+
+@keyframes flutuate {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes flutuate-card {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,73 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5rem 0;
+  gap: 1.25rem;
+  background: var(--footer-gradient-color);
+}
+
+.brand-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  font-size: 1rem;
+  font-family: --var(--global-font);
+}
+
+.brand-footer a img {
+  width: 2.25rem;
+  height: auto;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-self: center;
+  margin-right: 1rem;
+  animation: glow-logo 1.5s infinite alternate;
+}
+
+.brand-footer h3 {
+  color: var(--white-color);
+  font-weight: 600;
+}
+
+footer p,
+footer .copyright,
+footer .copyright a,
+#year {
+  color: var(--fgray-color);
+  font-family: var(--alternative-font);
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.icon-footer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.icon-footer .icon-link {
+  fill: var(--fgray-color);
+  width: 1.5rem;
+  height: 1.5rem;
+}
+footer .copyright::before {
+  content: "";
+  display: block;
+  width: 1400px;
+  border-top: 1px solid var(--fline-color);
+  margin: 1rem 0 2rem;
+}
+footer .copyright p,
+#year {
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+footer .copyright a {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.875rem;
+}
