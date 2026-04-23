@@ -7,7 +7,6 @@ A front-end landing page for **Visual Media Create**, a next-generation visual c
 ## 🔗 Deploy
 
 ### 🔗 Access the page published here:
-
 👉 https://kelvesmoura.github.io/Landing_Page-Visual_Media_Create/
 
 ---
@@ -25,7 +24,7 @@ A front-end landing page for **Visual Media Create**, a next-generation visual c
 - [JavaScript](#javascript)
 - [Sections & Features](#sections--features)
 - [Back-end Integration (Optional)](#back-end-integration-optional)
-- [Mobile First](#mobile-first)
+- [📱 Mobile First & Responsiveness](#-mobile-first--responsiveness)
 - [Getting Started](#getting-started)
 - [External Dependencies](#external-dependencies)
 - [License](#license)
@@ -36,9 +35,10 @@ A front-end landing page for **Visual Media Create**, a next-generation visual c
 
 This is a single-page marketing landing page targeting agencies or freelancers in the digital creative space. It includes:
 
-- A sticky, scroll-aware header with blur effect
+- A sticky, scroll-aware header with blur effect and mobile hamburger menu
 - Hero section with dual CTA buttons
-- Benefits, Services, Portfolio, Testimonials, FAQ, and Contact sections
+- Benefits, Services, Portfolio, Testimonials, FAQ, and Contact sections — all fully responsive
+- Fluid sizing via `clamp()` across typography, spacing, and layout
 - A functional contact form (wired to a Node.js back-end for email delivery)
 - Footer with dynamic year rendering
 
@@ -46,14 +46,14 @@ This is a single-page marketing landing page targeting agencies or freelancers i
 
 ## Tech Stack
 
-| Layer                 | Technology                          |
-| --------------------- | ----------------------------------- |
-| Markup                | HTML5                               |
-| Styling               | Vanilla CSS (Modular)               |
-| Scripting             | Vanilla JavaScript (ES6+)           |
-| Icons                 | Lucide Static (CDN)                 |
-| Fonts                 | Google Fonts (Open Sans, Work Sans) |
-| Back-end _(optional)_ | Node.js, Express, Nodemailer        |
+| Layer      | Technology                        |
+|------------|-----------------------------------|
+| Markup     | HTML5                             |
+| Styling    | Vanilla CSS (Modular)             |
+| Scripting  | Vanilla JavaScript (ES6+)         |
+| Icons      | Lucide Static (CDN)               |
+| Fonts      | Google Fonts (Open Sans, Work Sans)|
+| Back-end *(optional)* | Node.js, Express, Nodemailer |
 
 ---
 
@@ -62,29 +62,38 @@ This is a single-page marketing landing page targeting agencies or freelancers i
 ```
 Landing_Page-Visual_Media_Create/
 ├── index.html
-├── src/
-│   ├── assets/
-│   │   ├── favicon/
-│   │   │   └── favicon.ico
-│   │   └── img/
-│   │       ├── brand_VisualCreateMedia.webp
-│   │       └── default_imageProject.webp
-│   ├── scripts/
-│   │   └── main.js
-│   └── style/
-│       ├── style.css          ← CSS entry point (imports all modules)
-│       ├── global.css         ← Design tokens, reset, base styles
-│       ├── header.css
-│       ├── hero.css
-│       ├── benefits.css
-│       ├── services.css
-│       ├── portfolio.css
-│       ├── testimonials.css
-│       ├── faq.css
-│       ├── contact.css
-│       ├── footer.css
-│       └── animation.css
-└── .gitignore
+├── README.md
+├── .gitignore
+└── src/
+    ├── assets/
+    │   ├── favicon/
+    │   │   └── favicon.ico
+    │   └── img/
+    │       ├── brand_VisualCreateMedia.webp
+    │       ├── project_01.webp
+    │       ├── project_02.webp
+    │       ├── project_03.webp
+    │       ├── project_04.webp
+    │       ├── project_05.webp
+    │       ├── project_06.webp
+    │       ├── project_07.webp
+    │       ├── project_08.webp
+    │       └── project_09.webp
+    ├── scripts/
+    │   └── main.js
+    └── style/
+        ├── style.css          ← CSS entry point (imports all modules)
+        ├── global.css         ← Design tokens, reset, base styles
+        ├── header.css
+        ├── hero.css
+        ├── benefits.css
+        ├── services.css
+        ├── portfolio.css
+        ├── testimonials.css
+        ├── faq.css
+        ├── contact.css
+        ├── footer.css
+        └── animation.css
 ```
 
 ---
@@ -115,19 +124,19 @@ The styling layer follows a **module-per-section** pattern. Each section of the 
 
 ### Module Breakdown
 
-| File               | Responsibility                                                      |
-| ------------------ | ------------------------------------------------------------------- |
+| File               | Responsibility                                              |
+|--------------------|-------------------------------------------------------------|
 | `global.css`       | CSS custom properties (design tokens), reset rules, base typography |
-| `header.css`       | Navigation bar, brand logo, CTA button, scroll-state class          |
-| `hero.css`         | Full-width hero layout, alert badge, title, dual CTA                |
-| `benefits.css`     | 3-column benefit cards with icon backgrounds                        |
-| `services.css`     | Service cards with gradient backgrounds                             |
-| `portfolio.css`    | Image grid / card layout with overlay info                          |
-| `testimonials.css` | Client testimonial cards, stars, customer info                      |
-| `faq.css`          | Question/answer card layout with icon indicators                    |
-| `contact.css`      | Two-column layout: contact form + direct contact info               |
-| `footer.css`       | Brand, tagline, social icons, copyright row                         |
-| `animation.css`    | Reusable keyframe animations and animated utility classes           |
+| `header.css`       | Navigation bar, brand logo, CTA button, scroll-state class  |
+| `hero.css`         | Full-width hero layout, alert badge, title, dual CTA        |
+| `benefits.css`     | 3-column benefit cards with icon backgrounds                |
+| `services.css`     | Service cards with gradient backgrounds                     |
+| `portfolio.css`    | Image grid / card layout with overlay info                  |
+| `testimonials.css` | Client testimonial cards, stars, customer info              |
+| `faq.css`          | Question/answer card layout with icon indicators            |
+| `contact.css`      | Two-column layout: contact form + direct contact info       |
+| `footer.css`       | Brand, tagline, social icons, copyright row                 |
+| `animation.css`    | Reusable keyframe animations and animated utility classes   |
 
 ### Design Tokens (CSS Variables)
 
@@ -160,12 +169,7 @@ All visual constants are defined in `global.css` using CSS custom properties, ma
   --button-invert-gradient-color: linear-gradient(to right, #4b0082, #ff6f00);
 
   /* Section Backgrounds */
-  --hero-background-color: linear-gradient(
-    135deg,
-    rgb(219, 204, 229),
-    rgb(236, 229, 230),
-    rgb(242, 211, 196)
-  );
+  --hero-background-color: linear-gradient(135deg, rgb(219,204,229), rgb(236,229,230), rgb(242,211,196));
   --benefits-gradient-color: linear-gradient(135deg, #e8e4ea, #e1dbe6);
   --services-gradient-color: linear-gradient(135deg, #e3d7dd, #e1dae5);
   --portfolio-gradient-color: linear-gradient(135deg, #e4dfe8, #f1e3db);
@@ -180,36 +184,31 @@ All visual constants are defined in `global.css` using CSS custom properties, ma
 
 ## JavaScript
 
-`src/scripts/main.js` is intentionally minimal, handling only essential page-level interactions:
+`src/scripts/main.js` handles all page-level interactions with no frameworks or build tools — just browser-native ES6.
 
-```js
-// Adds a backdrop-blur class to the header on scroll
-window.addEventListener("scroll", () => {
-  const header = document.querySelector("header");
-  header.classList.toggle("scrolled", window.scrollY > 50);
-});
+**Scroll-aware header:** A `scroll` event listener monitors `window.scrollY` and conditionally adds or removes the `scrolled` class on the `<header>` element, triggering a `backdrop-filter: blur` effect defined in CSS.
 
-// Dynamically renders the current year in the footer copyright
-document.querySelector("#year").textContent = new Date().getFullYear();
-```
+**Dynamic footer year:** The current year is injected into `#year` at runtime via `new Date().getFullYear()`, keeping the copyright notice always up to date.
 
-No frameworks, no build tools required — just browser-native ES6.
+**Mobile navigation toggle:** A click listener on `.icon-menu` (the hamburger button) toggles the `nav-active` class on the `<nav>` element, which slides the menu in via a CSS `translateX` transition — keeping the interaction logic fully decoupled from the visual animation.
+
+**Mobile menu hover states:** A `getLink` helper utility queries anchor elements within each `<li>` item. `mouseover` and `mouseout` events apply and remove `nav-active-text` and `nav-active-bg` classes, delivering visual hover feedback on mobile menu items. A `click` listener on each item additionally closes the menu by removing `nav-active` from `<nav>`, ensuring smooth navigation on touch devices.
 
 ---
 
 ## Sections & Features
 
-| Section          | Key Details                                                       |
-| ---------------- | ----------------------------------------------------------------- |
-| **Header**       | Brand logo, navigation links, CTA button, scroll blur effect      |
-| **Hero**         | Agency badge, headline with styled span, dual CTA (play + arrow)  |
-| **Benefits**     | 3 cards — Lightning Results, Smart Targeting, Proven Innovation   |
-| **Services**     | 3 cards — AI-Powered Design, Immersive Content, Quantum Visuals   |
-| **Portfolio**    | 6-card image grid with project name and category overlay          |
-| **Testimonials** | 3 client cards with star rating, quote, name and company          |
-| **FAQ**          | 4 expandable-ready cards covering common client questions         |
-| **Contact**      | Form (name, company, email, phone, message) + direct contact info |
-| **Footer**       | Brand, tagline, social links, dynamic copyright year              |
+| Section       | Key Details                                                       |
+|---------------|-------------------------------------------------------------------|
+| **Header**    | Brand logo, navigation links, CTA button, scroll blur effect      |
+| **Hero**      | Agency badge, headline with styled span, dual CTA (play + arrow)  |
+| **Benefits**  | 3 cards — Lightning Results, Smart Targeting, Proven Innovation   |
+| **Services**  | 3 cards — AI-Powered Design, Immersive Content, Quantum Visuals   |
+| **Portfolio** | 6-card image grid with project name and category overlay          |
+| **Testimonials** | 3 client cards with star rating, quote, name and company       |
+| **FAQ**       | 4 expandable-ready cards covering common client questions         |
+| **Contact**   | Form (name, company, email, phone, message) + direct contact info |
+| **Footer**    | Brand, tagline, social links, dynamic copyright year              |
 
 ---
 
@@ -234,28 +233,36 @@ A `server.js` file at the project root (or inside a dedicated `/server` director
 
 ---
 
-## Mobile First
+## 📱 Mobile First & Responsiveness
 
-> ⚠️ **Mobile First support is currently under development.**
+Responsive support has been fully implemented across all sections of the page. The approach combines **fluid sizing via `clamp()`** with **targeted media queries** for structural layout changes, minimizing breakpoint dependency while ensuring a consistent experience across all viewport sizes.
 
-The current layout is built and optimized for desktop viewports. Responsive breakpoints and a mobile-first CSS approach are planned for an upcoming release. The `<meta name="viewport">` tag is already in place to prepare for this transition.
+### Fluid Typography & Spacing with `clamp()`
 
-When mobile support is implemented, the convention will follow the standard mobile-first pattern — base styles targeting small screens, with `min-width` media queries expanding layouts upward:
+`clamp(min, preferred, max)` is used throughout the CSS modules to make font sizes, gaps, paddings, and line heights scale smoothly between viewport widths — without requiring media queries for every size adjustment. This applies consistently across all content sections:
 
-```css
-/* Base: mobile */
-.cards-benefits {
-  display: flex;
-  flex-direction: column;
-}
+| Property        | Example usage                                      |
+|-----------------|----------------------------------------------------|
+| `font-size`     | Headings, body text, footer copyright              |
+| `padding`       | Section vertical and horizontal spacing            |
+| `gap`           | Card and layout gaps                               |
+| `line-height`   | Paragraph and heading readability                  |
+| `width`         | Constrained containers (e.g. FAQ cards)            |
 
-/* Tablet and up */
-@media (min-width: 768px) {
-  .cards-benefits {
-    flex-direction: row;
-  }
-}
-```
+### Breakpoints & Structural Changes
+
+Media queries are used selectively for layout shifts that `clamp()` alone cannot handle:
+
+| Breakpoint         | Affected file(s)                     | Behavior                                              |
+|--------------------|--------------------------------------|-------------------------------------------------------|
+| `max-width: 425px` | `header.css`                         | CTA button hidden; brand logo aligns left             |
+| `max-width: 570px` | `hero.css`                           | Hero layout adapts for small phone screens            |
+| `max-width: 1024px`| `header.css`, `benefits.css`, `services.css`, `portfolio.css`, `testimonials.css`, `contact.css`, `faq.css` | Multi-column grids collapse to single column; nav converts to full-screen mobile drawer |
+| `min-width: 1025px`| `header.css`                         | Hamburger icon hidden; desktop nav visible            |
+
+### Mobile Navigation
+
+On viewports up to `1024px`, the navigation converts to a **full-screen slide-in drawer**. The menu is positioned off-screen via `translateX(-100%)` and revealed with a smooth `0.5s ease-in-out` transition when the `.icon-menu` hamburger button is clicked. Clicking any menu link closes the drawer automatically — the entire toggle mechanism is driven by a single `nav-active` class, with all animation handled in CSS.
 
 ---
 
@@ -277,11 +284,11 @@ For the optional back-end, refer to the [Back-end Integration](#back-end-integra
 
 ## External Dependencies
 
-| Dependency   | Source       | Purpose                         |
-| ------------ | ------------ | ------------------------------- |
-| Lucide Icons | CDN (unpkg)  | Icon set used throughout the UI |
-| Open Sans    | Google Fonts | Primary body font               |
-| Work Sans    | Google Fonts | Alternative / heading font      |
+| Dependency     | Source      | Purpose                        |
+|----------------|-------------|--------------------------------|
+| Lucide Icons   | CDN (unpkg) | Icon set used throughout the UI |
+| Open Sans      | Google Fonts | Primary body font              |
+| Work Sans      | Google Fonts | Alternative / heading font     |
 
 ---
 

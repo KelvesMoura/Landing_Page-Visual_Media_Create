@@ -1,24 +1,34 @@
 .contact {
   background: var(--contact-gradient-color);
-  padding: 5rem 13rem;
-  line-height: 1.5rem;
   display: flex;
   flex-direction: column;
+}
+
+.section-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  width: 100%;
+  gap: clamp(1.5rem, 0.8rem + 1.46vw, 2rem);
+  line-height: clamp(1.75rem, 1.7rem + 0.36vw, 2rem);
+  margin: 0;
+  padding: clamp(3rem, 2.5875rem + 10.07vw, 5rem)
+    clamp(0.5rem, -4.2rem + 17vw, 24rem) 5rem;
 }
 
 .title-contact {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: clamp(1.5rem, 0.8rem + 1.46vw, 2rem);
 }
 
 .title-contact h2 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 0.9rem + 3.59vw, 3rem);
   font-weight: 700;
   font-family: var(--global-font);
-  line-height: 7rem;
+  line-height: clamp(2rem, 2.4rem + 3.33vw, 7rem);
   letter-spacing: 1.25px;
   text-align: center;
   text-wrap: inherit;
@@ -32,7 +42,17 @@
   color: transparent;
 }
 
-.section-contact {
+.title-contact p {
+  font-size: clamp(0.875rem, 0.75rem + 0.91vw, 1.25rem);
+  font-weight: 500;
+  font-family: var(--alternative-font);
+  color: var(--bgray-color);
+  text-align: center;
+  letter-spacing: 1.25px;
+  line-height: clamp(1rem, 1rem + 3.33vw, 2rem);
+}
+
+.section-contact-info {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -46,10 +66,11 @@
   background-color: #e8dbdc;
   padding: 2rem 1.5rem;
   margin: 1rem;
+  height: 660px;
+  width: 50%;
   border-radius: 0.5rem;
   gap: 1rem;
   box-shadow: 0 5px 10px 0px #0000001c;
-  width: 450px;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -96,7 +117,7 @@ input[type="tel"] {
   border-radius: 0.5rem;
 }
 
-.section-contact form {
+.section-contact-info form {
   display: grid;
   grid-template-areas:
     "name company"
@@ -142,11 +163,17 @@ input[type="tel"] {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 2rem 1.5rem;
-  margin: 1rem;
-  width: 450px;
+  width: 95%;
+  padding: 2rem 0;
+  margin: clamp(0.875rem, 0.75rem + 0.91vw, 1.25rem);
   background-color: #e9d9d6;
+}
+
+.info-contact .link-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  margin-top: 0.875rem;
 }
 
 .info-contact .link-social {
@@ -154,6 +181,12 @@ input[type="tel"] {
   flex-direction: row;
   align-items: center;
   gap: 1rem;
+}
+
+.info-contact .link-social .link {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
 }
 
 .link-social .link {
@@ -169,7 +202,7 @@ input[type="tel"] {
 
 .info-contact .link p,
 .features p {
-  font-size: 1rem;
+  font-size: clamp(0.625rem, 0.75rem + 0.91vw, 1rem);
   font-weight: 500;
 }
 
@@ -213,12 +246,49 @@ form .submit button:hover {
 .benefits2 .features {
   display: flex;
   flex-direction: row;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .benefits2::before {
   content: "";
   display: block;
   border-top: 1px solid black;
-  margin: 2rem 0;
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 1024px) {
+  .section-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .section-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .form {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  .section-contact-info form {
+    display: grid;
+    grid-template-areas:
+      "name"
+      "company"
+      "email"
+      "phone"
+      "message"
+      "submit";
+  }
 }

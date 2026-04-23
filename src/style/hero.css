@@ -1,34 +1,59 @@
 .hero {
   background: var(--hero-background-color);
-  height: screen;
-  width: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.section-hero {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10rem 28rem 5rem;
-  line-height: 1.5rem;
+  width: clamp(65%, 90%, 95%);
+  gap: clamp(1rem, 0.8rem + 1.46vw, 2rem);
+  line-height: clamp(1.75rem, 1.7rem + 0.36vw, 2rem);
+  margin: 0;
+  padding: clamp(6rem, 5.0875rem + 10.07vw, 10.5625rem)
+    clamp(0.5rem, -4.2rem + 17vw, 24rem) 3rem;
 }
 
 .alert-agency {
   display: flex;
   flex-direction: row;
-  gap: 0.625rem;
   align-items: center;
-  font-size: 0.75rem;
-  padding: 0 0.625rem;
+  width: auto;
+  gap: min(10px, 0.625rem);
+  padding: 0 min(10px, 0.625rem);
   background: #c5b2d1;
   border: 2px solid #c5b2d1;
   border-radius: 0.312rem;
   animation: opacity-pulse 1s infinite alternate;
 }
 
+.star-alert {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+}
+
+.star-alert i {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.alert-agency p {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
 h1 {
-  font-size: 4.5rem;
+  font-size: clamp(2.5rem, 0.9rem + 3.59vw, 4.5rem);
   font-weight: 700;
   font-family: var(--global-font);
-  text-wrap: wrap;
-  line-height: 7rem;
+  line-height: clamp(2rem, 3.4rem + 3.33vw, 7rem);
   letter-spacing: 1.25px;
   text-align: center;
   text-wrap: inherit;
@@ -43,14 +68,14 @@ h1 span {
 }
 
 .title-hero p {
-  font-size: 1.25rem;
+  font-size: clamp(0.875rem, 0.75rem + 0.91vw, 1.25rem);
   font-weight: 500;
   font-family: var(--alternative-font);
   text-wrap: wrap;
   color: var(--bgray-color);
   text-align: center;
   letter-spacing: 1.25px;
-  line-height: 2rem;
+  line-height: clamp(1rem, 1rem + 3.33vw, 2rem);
 }
 
 .double-cta {
@@ -70,6 +95,7 @@ h1 span {
   border: none;
   font-size: 1rem;
   font-weight: 500;
+  letter-spacing: 0.125rem;
   border-radius: 0.312rem;
   cursor: pointer;
   animation: glow-invert-button 1.5s infinite alternate;
@@ -103,4 +129,23 @@ h1 span {
 .cta-transparent button:hover {
   background: var(--borange-color);
   color: white;
+}
+
+@media only screen and (max-width: 570px) {
+  .double-cta {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 0;
+    width: 100%;
+  }
+
+  .cta-invert button,
+  .cta-transparent button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }

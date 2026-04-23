@@ -31,11 +31,32 @@
 }
 
 *,
-body {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  width: auto;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+}
+
+body {
   font-family: var(--global-font);
   color: var(--bgray-color);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
 }
