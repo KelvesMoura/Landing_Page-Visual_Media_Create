@@ -1,3 +1,12 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes glow-logo {
   from {
     box-shadow: 0 0 10px rgba(75, 0, 130, 0.5);

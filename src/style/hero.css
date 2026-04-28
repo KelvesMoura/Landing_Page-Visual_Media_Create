@@ -2,6 +2,7 @@
   background: var(--hero-background-color);
   display: flex;
   justify-content: center;
+  animation: fadein 2s ease-in-out;
 }
 
 .section-hero {

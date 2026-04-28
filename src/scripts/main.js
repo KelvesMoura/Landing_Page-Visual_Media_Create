@@ -1,13 +1,46 @@
 // Added a blur effect in the header
-window.addEventListener("scroll", () => {
-  const header = document.querySelector("header");
 
+const qs = (selector) => document.querySelector(selector);
+
+const selectors = {
+  header: qs("header"),
+  benefits: qs(".benefits"),
+  services: qs(".services"),
+  portfolio: qs(".portfolio"),
+  testimonials: qs(".testimonials"),
+  faq: qs(".faq"),
+  contact: qs(".contact"),
+};
+
+const { header, benefits, services, portfolio, testimonials, faq, contact } =
+  selectors;
+
+const listOpacity = [benefits, services, portfolio, testimonials, faq, contact];
+
+window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
   }
+
+  requestAnimationFrame(() => {
+    listOpacity.forEach((section) => {
+      let rect = section.getBoundingClientRect();
+      const widthHeight = window.innerHeight;
+
+      const start = widthHeight;
+      const end = widthHeight / 2;
+
+      let progress = (start - rect.top) / (start - end);
+
+      progress = Math.max(0, Math.min(1, progress));
+      section.style.setProperty("--progress", progress);
+    });
+  });
 });
+
+window.addEventListener("scroll", () => console.log("Scroll detectado!"));
 
 //Added the year in the footer
 document.querySelector("#year").textContent = new Date().getFullYear();

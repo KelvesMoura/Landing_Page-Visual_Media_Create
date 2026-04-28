@@ -36,9 +36,11 @@ A front-end landing page for **Visual Media Create**, a next-generation visual c
 This is a single-page marketing landing page targeting agencies or freelancers in the digital creative space. It includes:
 
 - A sticky, scroll-aware header with blur effect and mobile hamburger menu
-- Hero section with dual CTA buttons
+- Hero section with dual CTA buttons and entrance fade-in animation
+- Scroll-driven scale + opacity reveal effect on sections as they enter the viewport
 - Benefits, Services, Portfolio, Testimonials, FAQ, and Contact sections — all fully responsive
 - Fluid sizing via `clamp()` across typography, spacing, and layout
+- Rich CSS keyframe animations: glow pulses, floating cards, border movement, SVG glow
 - A functional contact form (wired to a Node.js back-end for email delivery)
 - Footer with dynamic year rendering
 
@@ -136,7 +138,22 @@ The styling layer follows a **module-per-section** pattern. Each section of the 
 | `faq.css`          | Question/answer card layout with icon indicators            |
 | `contact.css`      | Two-column layout: contact form + direct contact info       |
 | `footer.css`       | Brand, tagline, social icons, copyright row                 |
-| `animation.css`    | Reusable keyframe animations and animated utility classes   |
+| `animation.css`    | Reusable keyframe animations consumed across all section modules  |
+
+The following keyframe animations are defined in `animation.css` and applied across the page:
+
+| Animation            | Used in / Effect                                                   |
+|----------------------|--------------------------------------------------------------------|
+| `fadein`             | Hero section entrance — fades in on page load                     |
+| `opacity-pulse`      | Alert badge in hero — pulses between 50% and 100% opacity         |
+| `glow-logo`          | Brand logo — subtle purple glow pulse                             |
+| `glow-button`        | Primary CTA button — orange + purple glow alternating             |
+| `glow-invert-button` | Secondary CTA button — same glow on inverted gradient             |
+| `border-move`        | Header bottom border — animated gradient sweep                    |
+| `border-pulse`       | Service card icon backgrounds — pulsing shadow glow               |
+| `glow-svg`           | SVG icons — drop-shadow glow cycle                                |
+| `flutuate`           | Generic float — smooth vertical oscillation                       |
+| `flutuate-card`      | Portfolio cards — staggered floating effect with `animation-delay` |
 
 ### Design Tokens (CSS Variables)
 
@@ -186,7 +203,11 @@ All visual constants are defined in `global.css` using CSS custom properties, ma
 
 `src/scripts/main.js` handles all page-level interactions with no frameworks or build tools — just browser-native ES6.
 
+**Selector cache:** All DOM targets are queried once at startup via a `qs` helper and stored in a `selectors` object, avoiding repeated `querySelector` calls on every scroll event.
+
 **Scroll-aware header:** A `scroll` event listener monitors `window.scrollY` and conditionally adds or removes the `scrolled` class on the `<header>` element, triggering a `backdrop-filter: blur` effect defined in CSS.
+
+**Scroll-driven section reveal:** On each scroll event, `requestAnimationFrame` is used to calculate a `--progress` CSS custom property (0 → 1) for each section — based on how far it has entered the viewport. This value drives a `scale(0.5 + progress * 0.5)` and `opacity` transition defined in CSS, producing a smooth scale-in and fade-in reveal as the user scrolls down. Sections tracked: Benefits, Services, Portfolio, Testimonials, FAQ, and Contact.
 
 **Dynamic footer year:** The current year is injected into `#year` at runtime via `new Date().getFullYear()`, keeping the copyright notice always up to date.
 
@@ -198,17 +219,17 @@ All visual constants are defined in `global.css` using CSS custom properties, ma
 
 ## Sections & Features
 
-| Section       | Key Details                                                       |
-|---------------|-------------------------------------------------------------------|
-| **Header**    | Brand logo, navigation links, CTA button, scroll blur effect      |
-| **Hero**      | Agency badge, headline with styled span, dual CTA (play + arrow)  |
-| **Benefits**  | 3 cards — Lightning Results, Smart Targeting, Proven Innovation   |
-| **Services**  | 3 cards — AI-Powered Design, Immersive Content, Quantum Visuals   |
-| **Portfolio** | 6-card image grid with project name and category overlay          |
-| **Testimonials** | 3 client cards with star rating, quote, name and company       |
-| **FAQ**       | 4 expandable-ready cards covering common client questions         |
-| **Contact**   | Form (name, company, email, phone, message) + direct contact info |
-| **Footer**    | Brand, tagline, social links, dynamic copyright year              |
+| Section       | Key Details                                                                      |
+|---------------|----------------------------------------------------------------------------------|
+| **Header**    | Brand logo, navigation links, CTA button, scroll blur, animated gradient border  |
+| **Hero**      | Agency badge with opacity pulse, headline, dual CTA with glow animations, `fadein` on load |
+| **Benefits**  | 3 cards — Lightning Results, Smart Targeting, Proven Innovation; scroll reveal    |
+| **Services**  | 3 cards with `border-pulse` icon glow, hover scale + shadow; scroll reveal        |
+| **Portfolio** | 9-image grid with staggered `flutuate-card` float animation; scroll reveal        |
+| **Testimonials** | 3 client cards with star rating, quote, customer info; scroll reveal           |
+| **FAQ**       | 4 question/answer cards; scroll reveal                                            |
+| **Contact**   | Form (name, company, email, phone, message) + direct contact info; scroll reveal  |
+| **Footer**    | Brand, tagline, social links, dynamic copyright year                              |
 
 ---
 
